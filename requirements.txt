@@ -1,0 +1,10 @@
+# Runtime deps for the Hugging Face Space (app.py).
+pydantic>=2
+sqlglot>=25
+sqlalchemy>=2
+loguru>=0.7
+pyyaml>=6
+typer>=0.12
+rich>=13
+gradio>=4
+pandas>=2
