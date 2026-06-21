@@ -2,6 +2,16 @@
 
 **🔴 [Live demo on Hugging Face Spaces](https://huggingface.co/spaces/rosingh/ai-ml-portfolio-demos)** — paste an attack and watch it get blocked.
 
+## 🧠 In plain English
+
+**The problem:** you want people to ask a database questions in plain English and let an AI write the SQL — but an AI can be tricked (or just slip) into writing `DROP TABLE customers` and wiping your data forever.
+
+**The fix (analogy):** a security guard at a bank vault. The AI is the *translator* turning English into vault instructions; the guard physically allows only "look, don't touch" — no matter what the translator says.
+
+**How it works:** the AI writes a SQL query → a **guard parses it into a structure** (a tree of what it actually does) and checks that tree (read-only, one statement only, real tables/columns only) → unsafe queries are **blocked with a reason**, safe ones run in a read-only sandbox that returns limited rows.
+
+**Why it's hard to beat:** it inspects the query's *structure*, not its text, so obfuscation tricks (`DR/**/OP`, hidden second commands) fail — and the guard runs **independently of the AI**, so even a fully jailbroken model can't talk its way past it. Tested against 26 attacks; blocks 100%.
+
 Natural-language → SQL with a **hard guardrail layer that statically blocks destructive
 or unsafe SQL before it can execute**. The guard works on the **sqlglot AST** (never regex),
 runs **independently of the LLM**, and is read-only by default with sandboxed execution
