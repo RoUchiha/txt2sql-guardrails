@@ -1,6 +1,6 @@
 # txt2sql — Text-to-SQL with AST Guardrails
 
-**🔴 [Live demo on Hugging Face Spaces](https://huggingface.co/spaces/rosingh/txt2sql-guardrails)** — paste an attack and watch it get blocked.
+**🔴 [Live demo on Hugging Face Spaces](https://huggingface.co/spaces/rosingh/ai-ml-portfolio-demos)** — paste an attack and watch it get blocked.
 
 Natural-language → SQL with a **hard guardrail layer that statically blocks destructive
 or unsafe SQL before it can execute**. The guard works on the **sqlglot AST** (never regex),
